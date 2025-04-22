@@ -2,15 +2,20 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
 using FreeUsePuller.Interfaces.Services;
+using FreeUsePuller.Options;
+using Microsoft.Extensions.Options;
 
 namespace FreeUsePuller.Services
 {
     public class WebScraperService : IWebScraperService, IHostedService, IAsyncDisposable
     {
         private readonly ILogger<WebScraperService> _logger;
-        public WebScraperService(ILogger<WebScraperService> logger)
+        private readonly FreeUsePornOptions _freeUsePornOptions;
+        public WebScraperService(ILogger<WebScraperService> logger
+                               , IOptions<FreeUsePornOptions> freeUsePornOptions)
         {
             _logger = logger;
+            _freeUsePornOptions = freeUsePornOptions.Value;
         }
         #region  IWebScraperService Implementation
         public async Task<string> GetNewestVideosAsync()
