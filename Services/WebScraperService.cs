@@ -1,9 +1,10 @@
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 using FreeUsePuller.Interfaces.Services;
 using FreeUsePuller.Options;
-using Microsoft.Extensions.Options;
+using FreeUsePuller.Models;
 
 namespace FreeUsePuller.Services
 {
@@ -18,6 +19,10 @@ namespace FreeUsePuller.Services
             _freeUsePornOptions = freeUsePornOptions.Value;
         }
         #region  IWebScraperService Implementation
+        public async Task<IEnumerable<CategoryListing>> GetCategoryListingsAsync()
+        {
+            throw new NotImplementedException();
+        }
         public async Task<string> GetNewestVideosAsync()
         {
             throw new NotImplementedException();
