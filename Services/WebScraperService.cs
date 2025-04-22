@@ -13,7 +13,7 @@ namespace FreeUsePuller.Services
             _logger = logger;
         }
         #region  IWebScraperService Implementation
-        public async Task<string> GetNewestVideos()
+        public async Task<string> GetNewestVideosAsync()
         {
             throw new NotImplementedException();
         }
