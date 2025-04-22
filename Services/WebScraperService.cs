@@ -8,7 +8,7 @@ using FreeUsePuller.Models;
 
 namespace FreeUsePuller.Services
 {
-    public class WebScraperService : IWebScraperService, IHostedService, IAsyncDisposable
+    public class WebScraperService : IWebScraperService
     {
         private readonly ILogger<WebScraperService> _logger;
         private readonly FreeUsePornOptions _freeUsePornOptions;
@@ -26,24 +26,6 @@ namespace FreeUsePuller.Services
         public async Task<string> GetNewestVideosAsync()
         {
             throw new NotImplementedException();
-        }
-        #endregion
-
-        #region IHostedService Implementation
-        public async Task StartAsync(CancellationToken cancellationToken)
-        {
-            _logger.LogInformation("Starting Web Scraper Service");
-        }
-        public async Task StopAsync(CancellationToken cancellationToken)
-        {
-            _logger.LogInformation("Stopping Web Scraper Service");
-        }
-        #endregion
-
-        #region IAsyncDisposable Implementation
-        public async ValueTask DisposeAsync()
-        {
-
         }
         #endregion
     }
