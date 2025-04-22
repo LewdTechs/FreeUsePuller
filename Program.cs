@@ -12,11 +12,11 @@ namespace FreeUsePuller
             //Create builder
             HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);
             //Add Services
-            builder.Services.AddHostedService<WebScraperService>();
+            builder.Services.AddSingleton<IWebScraperService, WebScraperService>();
 
             //Build and run builder
             IHost host = builder.Build();
-            await host.RunAsync();
+            await host.StartAsync();
         }
     }
 }
