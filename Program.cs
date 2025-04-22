@@ -1,10 +1,22 @@
-﻿namespace FreeUsePuller
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
+using FreeUsePuller.Services;
+
+namespace FreeUsePuller
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            Console.WriteLine("FreeUsePuller");
+            //Create builder
+            HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);
+            //Add Services
+            builder.Services.AddHostedService<WebScraperService>();
+
+            //Build and run builder
+            IHost host = builder.Build();
+            await host.RunAsync();
         }
     }
 }
